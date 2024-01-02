@@ -1,2 +1,34 @@
 .main
-  display: column
+  display: flex
+  flex-direction: column
+  padding: 3.8rem 0rem
+  gap: 1rem
+  align-items: center
+  width: 100%
+
+.bimestre
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+
+  &-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &-title
+      color: #FFF
+      font-size: 0.875rem
+      font-weight: 500
+      line-height: 1.875rem
+      font-style: normal
+
+  &-notas
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 2rem 0.5rem
+    float: left
+
+    @media only screen and (min-width: 48em) 
+      grid-template-columns: repeat(4, 1fr)
+    
