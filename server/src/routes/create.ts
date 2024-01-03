@@ -3,13 +3,16 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { prisma } from "../lib/prisma";
 
 const createSchema = z.object({
-  disciplina: z.enum(["Biologia", "Artes", "Geografia", "Sociologia"]),
-  bimestre: z.enum(["PRIMEIRO","SEGUNDO","TERCEIRO","QUARTO"]),
-  nota: z.number().min(0).max(10),
+  disciplina: z.enum(["biologia", "artes", "geografia", "sociologia"]),
+  bimestre: z.enum(["primeiro","segundo","terceiro","quarto"]),
+  nota: z.coerce.number().min(0).max(10),
 })
 
 type createSchemaType = z.infer<typeof createSchema>
 export async function create(req:FastifyRequest, res:FastifyReply) {
+  console.log('teste',req.body);
+  
+
   try{
     const data = createSchema.parse(req.body)
     const disciplina = await prisma.result.findFirst({where: {disciplina: data.disciplina, bimestre: data.bimestre}})

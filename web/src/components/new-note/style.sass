@@ -1,3 +1,6 @@
+button,input
+  all: unset
+  
 .trigger
   background: #E9FF1A
   border: none
@@ -10,3 +13,124 @@
   background: rgba(0, 0, 0, 0.80)
   position: fixed
   inset: 0
+
+.content
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: fit-content
+  background: #222222
+  padding: 1.5rem 2.8rem
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &-title
+    color: #FFFFFF
+    font-weight: 500
+    line-height: 1.125rem
+    font-size: 1.5rem
+
+  &-close
+    line-height: 0
+    color: #FFFFFF
+  &-close:hover
+    cursor: pointer
+
+.radio
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: 1rem 1.5rem
+  float: left
+
+  &-item
+    color: #ececec
+    width: 8rem
+    display: flex
+    flex-direction: row
+    justify-content: center
+    padding: 1rem
+    border-radius: 20px
+    border: 1px solid transparent
+
+  &-item[data-state="unchecked"]
+    opacity: 0.5
+
+  &-item:hover
+    cursor: pointer
+
+.primeiro
+  background: #CC409033
+.segundo
+  background: #05A2C2
+.terceiro
+  background: #C2671933
+.quarto
+  background: #9B19C233
+
+.nota
+  border: 1px solid #424242
+  width: 4.2rem
+  border-radius: 20px
+  padding: 1rem 0.75rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  &-input
+    width: 1.5rem
+    color: #424242
+
+  &-input[data-error]
+    color: #ac4e4e
+
+  &-input[type="number"]::-webkit-inner-spin-button,
+  &-input[type="number"]::-webkit-outer-spin-button 
+    -webkit-appearance: none
+    margin: 0
+
+.nota[data-error]
+  border: 1px solid #ac4e4e
+
+.subtitle
+  font-size: 1.125rem
+  color: #FFFFFF
+  line-height: 1.125rem
+  font-weight: 400
+  margin-top: 0.5rem
+
+.form
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  width: 100%
+
+.submit
+  padding: 16px 32px
+  width: fit-content
+  gap: 10px
+  flex-shrink: 0
+  border-radius: 12px
+  background: #E9FF1A
+  box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08)
+
+.submit:hover
+  cursor: pointer
+  
+.footer
+  display: flex
+  width: 100%
+  justify-content: space-between
+
+.error-form
+  font-size: 0.875rem
+  font-weight: 500
+  color: #ac4e4e
+  margin-left: 0.5rem

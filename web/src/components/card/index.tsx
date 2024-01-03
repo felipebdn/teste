@@ -2,14 +2,22 @@ import { Trash2 } from 'lucide-react'
 import chart from '../../assets/Chart.svg'
 import './style.sass'
 import dayjs from 'dayjs'
+import { api } from '../../lib/api'
 
 interface CardProps {
+  id: string
   theme: string
   date: string
   note: number
+  revalidate: () => void
 }
 
 export function Card(data: CardProps) {
+  async function handleDeleteNote() {
+    await api.delete(`/remove/${data.id}`)
+    data.revalidate()
+  }
+
   return (
     <div className="target">
       <div className={`card ${data.theme.toLowerCase()}`}>
@@ -22,9 +30,9 @@ export function Card(data: CardProps) {
           <p>Nota: {data.note}</p>
         </main>
       </div>
-      <div className="trash">
+      <button onClick={handleDeleteNote} className="trash">
         <Trash2 />
-      </div>
+      </button>
     </div>
   )
 }
